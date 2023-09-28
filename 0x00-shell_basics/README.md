@@ -5,3 +5,4 @@
 # Task 4. Hidden files: (4-listmorefiles) - displays current directory contents, including hidden files (starting with .), using the long format.
 # Task 5. I love numbers: (5-listfilesdigitonly) - displays current directory contents in long format with user and group IDs displayed numerically and hidden files (starting with .).
 # Task 6. Welcome: (6-firstdirectory) - creates a directory named my_first_directory in the /tmp/ directory.
+# Task 7. Betty in my first directory: (7-movethatfile) - moves the file betty from /tmp/ to /tmp/my_first_directory.
