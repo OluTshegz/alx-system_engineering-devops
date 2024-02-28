@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This bash script displays `listening ports`
+# Only shows `listening sockets` (-l) and the `PID` (-p) and
+# `name` of the `program` (-p) to which each `socket` belongs
+
+# `sudo ss -xtulnp`: This command will show active UNIX domain sockets (-x),
+# TCP connections (-t) and UDP connections (-u) in the listening state (-l),
+# along with the corresponding local addresses, ports, and associated
+# processes (-n), and the process ID and name (-p).
+
+netstat -lp
