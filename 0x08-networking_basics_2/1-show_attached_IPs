@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This bash script displays all active IPv4 IPs on the machine it’s executed on
+# ifconfig: get interface names
+# grep "inet[^6]": filter IPV4 lines
+# awk '{print $2}': extract second field
+
+ifconfig | grep "inet[^6]" | awk '{print $2}'
+
