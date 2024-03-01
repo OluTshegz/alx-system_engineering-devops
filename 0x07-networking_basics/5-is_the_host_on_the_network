@@ -6,7 +6,7 @@
 
 # Check if an IP address is provided as an argument
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 {IP_ADDRESS}"
+    echo "Usage: ${0##*/} {IP_ADDRESS}"
     exit 1
 fi
 
