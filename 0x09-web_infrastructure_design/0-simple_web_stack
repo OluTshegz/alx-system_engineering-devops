@@ -1,4 +1,4 @@
-Screenshot of the diagram: https://imgur.com/uFbdTRW
+Screenshot of the diagram: https://imgur.com/uFbdTRW 
 
 
 
@@ -6,10 +6,14 @@ Explaining some specifics about this infrastructure:
 ----------------------------------------------------
 
 1-What is a server?
-    Server is a computer that operates an OS such as Linux to manage the operation between the server components and applications, servers usually located in a data center, servers can also exist as virtual entities within a virtualized environment. A server provides a variety of services like hosting web servers, applications, or other online services.
+    Server is a computer that operates an OS such as Linux to manage the operation between the server
+    components and applications, servers usually located in a data center, servers can also exist as virtual
+    entities within a virtualized environment. A server provides a variety of services like hosting web servers,
+    applications, or other online services.
 
 2-What is the role of the domain name?
-    Domain name serves as an alias for the IP address of a particular website to make it easier for people to access that website with the help of DNS, as it is easier for humans to remember words instead of numbers.
+    Domain name serves as an alias for the IP address of a particular website to make it
+    easier for people to access that website with the help of DNS, as it is easier for humans to remember words instead of numbers.
 
 3-What type of DNS record www is in www.foobar.com
     The type of the DNS record www is in www.foobar.com is CNAME
@@ -18,10 +22,13 @@ Explaining some specifics about this infrastructure:
     The web server is responsible for handling the HTTP requests and responses, such as sending back an HTML page.
 
 5-What is the role of the application server?
-    The application server is responsible for handling dynamic requests by leveraging the code base of the website to execute specific business logic to dynamically generate HTML pages or other response data based on the requested logic and data and send it back to the web server to send it to the client.
+    The application server is responsible for handling dynamic requests by leveraging
+    the code base of the website to execute specific business logic to dynamically generate HTML pages
+    or other response data based on the requested logic and data and send it back to the web server to send it to the client.
 
 6-What is the role of the database?
-    The database is used to store, retrieve, organize, and manage structured data used by the web application. It ensures the data integrity and allows for efficient searching, sorting, and analysis of data.
+    The database is used to store, retrieve, organize, and manage structured data used by the web application.
+    It ensures the data integrity and allows for efficient searching, sorting, and analysis of data.
 
 7-What is the server using to communicate with the computer of the user requesting the website?
     When a user requests a website, the server communicates over a network using the TCP/IP protocol.
@@ -39,10 +46,14 @@ Explain what the issues are with this infrastructure:
             
             - if The web server crashes or becomes unresponsive, it will cause the web application to crash as well
 
-            - Or if The database server craches for any reason this will cause data unavailability and disrupt the functioning of the web applications because the database is responsible to manage the data of the application.
+            - Or if The database server craches for any reason this will cause data unavailability
+            and disrupt the functioning of the web applications because the database
+            is responsible to manage the data of the application.
 
 2-Downtime when maintenance needed (like deploying new code web server needs to be restarted)
-    In the case of this infrastructure when performing any updates to the web site like deploying new code or the web server needs to be restarted will temporarily disrupt the availability of the website.
+    In the case of this infrastructure when performing any updates to the web site like deploying
+    new code or the web server needs to be restarted will temporarily disrupt the availability of the website.
 
 3-Cannot scale if too much incoming traffic
-    This infrastructure cannot scale when dealing with a high volume of incoming traffic that exceeds the capacity of the server, which will cause performance issues or it can even crash.
+    This infrastructure cannot scale when dealing with a high volume of incoming traffic that exceeds
+    the capacity of the server, which will cause performance issues or it can even crash.

@@ -5,7 +5,10 @@ Explaining some specifics about this infrastructure:
 ----------------------------------------------------
 
 1-What distribution algorithm your load balancer is configured with and how it works?
-    I am using Round Robin algorithm that distrebutes requests equally between the servers, for example if we have 2 servers replicas A and B, the first request comes to the load balancer will go to the A server and the second request to B server and the third request will got back to the A server and the fourth request will go to the B server again, and so on.
+    I am using Round Robin algorithm that distrebutes requests equally between the servers,
+    for example if we have 2 servers replicas A and B, the first request comes to the load balancer
+    will go to the A server and the second request to B server and the third request will got back to the A server
+    and the fourth request will go to the B server again, and so on.
 
 2-Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both?
     My load-balancer enabling an Active-Active setup.
@@ -13,14 +16,17 @@ Explaining some specifics about this infrastructure:
         Means that all instances handle requests concurrently.
     
     Active-Passive:
-        Means that only one instance is active and handles requests and a passive instance that is on standby, so that when the active instance fails for any reason, the passive instance will be active and take the role.
+        Means that only one instance is active and handles requests and a passive instance that is on standby,
+        so that when the active instance fails for any reason, the passive instance will be active and take the role.
 
 3-How a database Primary-Replica (Master-Slave) cluster works?
     Primary Node:
-        Validates and executes the write operations on its local copy of the data, and after successfully applying the changes, the primary node populates the updates to the replica nodes for synchronization.
+        Validates and executes the write operations on its local copy of the data, and after successfully applying the changes,
+        the primary node populates the updates to the replica nodes for synchronization.
     
     Replica Nodes:
-        It only handles read requests from client applications by serving data from their local copies without modifying it, and it continuously receives updates from the primary node to keep their copies of the data consistent.
+        It only handles read requests from client applications by serving data from their local copies without modifying it,
+        and it continuously receives updates from the primary node to keep their copies of the data consistent.
 
 
 --------------------------------------------------------------------------------------------------------
@@ -30,10 +36,13 @@ Explain what the issues are with this infrastructure:
 -----------------------------------------------------
 
 1-Where are SPOF?
-    The load balancer is a single point of failure because if it goes down for any reason, there will be no way to access the website
+    The load balancer is a single point of failure because if it goes down for any reason,
+    there will be no way to access the website
 
 2-Security issues (no firewall, no HTTPS)
-    This infrastructure has some security issues such as there is no firewall on servers so it's vulnerable to hacker attacks also there is no HTTPS which means that communication between a client and a server is not secured.
+    This infrastructure has some security issues such as there is no firewall on servers
+    so it's vulnerable to hacker attacks also there is no HTTPS which means that communication between
+    a client and a server is not secured.
 
 3-No monitoring
     There are no monitors to monitor the status of the load balancer and servers
