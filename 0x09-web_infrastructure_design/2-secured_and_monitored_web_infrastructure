@@ -1,0 +1,42 @@
+Screenshot of the diagram: https://imgur.com/ySXia1D
+
+
+
+Explaining some specifics about this infrastructure:
+----------------------------------------------------
+
+1- What are firewalls for?
+    A firewall is a division between a private network and an outer network. Firewalls allow, limit, and block network traffic based on preconfigured rules in the hardware or software.
+
+2- Why is the traffic served over HTTPS?
+    Because HTTPS encrypts the data when there is a communication between a client and a server which mean that if someone tries to intercept the data he/she will not be able to read it.
+
+3- What monitoring is used for?
+    used to check the status of servers and other components within a system. It involves continuously observing and collecting data on various aspects of the system to check if there is something broken or the performance is slow
+
+4- How the monitoring tool is collecting data?
+    In our case the monitoring tool is collecting data by installing small software agents on the servers or components being monitored. These agents collect data directly from the system and sending it to the monitoring system.
+
+5- Explain what to do if you want to monitor your web server QPS?
+    Checking the status of the web server and collect its data continuously, and send an alert if any sudden increase in QPS or error rates occured.
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+Explain what the issues are with this infrastructure:
+-----------------------------------------------------
+
+1- Where are SPOF?
+    The load balancer is a single point of failure because if it goes down for any reason, there will be no way to access the website
+
+2- Why terminating SSL at the load balancer level is an issue
+    Because terminating SSL at the load balancer level means that the communication between the load balancer and the web servers will be unencrypted, which means that the data is vulnerable to attackers.
+
+3- Why having only one MySQL server capable of accepting writes is an issue?
+    Because there will be no way for the application to write to the database if the main MySQL server that can write to the database goes down for any reason.
+
+4- Why having servers with all the same components (database, web server and application server) might be a problem?
+
+    Because different components within a system often have varying scalability requirements. For example, a database server may need more processing power and storage capacity as the data grows, while an application server might require more instances to handle increased user traffic. Also when all servers have the same components, they become a single point of failure for those specific components. If a critical issue or failure occurs in one component, it can affect the entire system or if there is maintenance performed on a server for a specific component, it will affect other components as well.
