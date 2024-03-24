@@ -1,0 +1,6 @@
+Screenshot of the diagram: https://imgur.com/a/HEASj3Y
+
+
+In this infrastructure the load-balancer configured as cluster with the other one (the passive one).
+If the active load balancer goes down for any reason the passive load balancer will take the
+responbility of handling requests until the primary load balancer is back up and running.
