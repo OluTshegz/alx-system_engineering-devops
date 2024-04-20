@@ -18,21 +18,26 @@ To generate an RSA SSH key pair, you can use the `ssh-keygen` command-line tool.
 
    ```
    Generating public/private rsa key pair.
-   Your identification has been saved in /home/username/.ssh/id_rsa.
-   Your public key has been saved in /home/username/.ssh/id_rsa.pub.
+   Enter file in which to save the key (/home/olusegun/.ssh/id_rsa):
+   /home/olusegun/.ssh/id_rsa already exists.
+   Overwrite (y/n)? y
+   Enter passphrase (empty for no passphrase):
+   Enter same passphrase again:
+   Your identification has been saved in /home/olusegun/.ssh/id_rsa
+   Your public key has been saved in /home/olusegun/.ssh/id_rsa.pub
    The key fingerprint is:
-   SHA256:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX username@hostname
+   SHA256:Z4XL+BsKqu4XMqACCATamqh8KPD1cJ199R++26mXbNs olusegun@OluTshegz
    The key's randomart image is:
    +---[RSA 4096]----+
-   |       .o+.      |
-   |     . o..o      |
-   |    ..o.. +      |
-   |   ..o . . o     |
-   |    .o S . .     |
-   |   . .   .       |
-   |    o .          |
-   |   . +           |
-   |    o.           |
+   |+.               |
+   |o.         .     |
+   |+ .       . . .  |
+   |=o     . = o . . |
+   |B.  o . S * .  ..|
+   |*.+..+   + .  . o|
+   |+o.+ .o   o   ..o|
+   |. . .. . . o   ==|
+   | o+o.   . .  .+=E|
    +----[SHA256]-----+
    ```
 
