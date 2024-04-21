@@ -1,12 +1,14 @@
 # configure SSH client so that you can connect to a server without typing a password
 # Use the private key in ~/.ssh/school for authentication
-IdentityFile ~/.ssh/school
+
+Host *
+    IdentityFile ~/.ssh/school
 
 # Refuse password authentication (prevents password prompt)
-PasswordAuthentication no
+    PasswordAuthentication no
 
 # Environment variable handling
-SendEnv LANG LC_*
+    SendEnv LANG LC_*
 
 # Known hosts file
-HashKnownHosts yes
+    HashKnownHosts yes
