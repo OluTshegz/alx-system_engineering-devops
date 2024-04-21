@@ -3,6 +3,6 @@
 # the private key `~/.ssh/school` with the user `ubuntu`
 
 # Server address
-SERVER="18.234.168.126"
+SERVER="100.25.37.24"
 # Connect to the server using SSH with single-character flags
 ssh -i ~/.ssh/school ubuntu@$SERVER
