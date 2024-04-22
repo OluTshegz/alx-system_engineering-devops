@@ -70,7 +70,7 @@ Name: 530478-web-01
 
 Username: ubuntu
 
-IP: 18.234.168.126
+IP: 100.25.37.24
 
 State: Pending/Running/...
 
