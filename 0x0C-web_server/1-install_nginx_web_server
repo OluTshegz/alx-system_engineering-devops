@@ -4,7 +4,7 @@
 # Serve a page that would return a Hello World string
 
 # Exit immediately if a command exits with a non-zero status
-set -e
+# set -e
 
 # Update package index and install Nginx
 sudo apt-get update -y
@@ -14,15 +14,15 @@ sudo apt-get install -y nginx
 sudo service nginx start
 
 # Ensure OpenSSH and Nginx are allowed through the firewall
-sudo ufw allow 'OpenSSH'
-sudo ufw allow 'Nginx HTTP'
+# sudo ufw allow 'OpenSSH'
+# sudo ufw allow 'Nginx HTTP'
 
 # sudo ufw enable -y
 
 # sudo su
 
-cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
-cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bak
+# cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+# cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bak
 
 sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
