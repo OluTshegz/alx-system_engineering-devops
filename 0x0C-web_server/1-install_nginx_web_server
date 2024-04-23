@@ -24,7 +24,7 @@ sudo ufw allow 'Nginx HTTP'
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bak
 
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Reload Nginx service
 sudo service nginx restart
