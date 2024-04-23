@@ -17,7 +17,7 @@ sudo service nginx start
 sudo ufw allow 'OpenSSH'
 sudo ufw allow 'Nginx HTTP'
 
-sudo ufw enable -y
+# sudo ufw enable -y
 
 # sudo su
 
