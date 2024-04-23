@@ -1,1 +1,37 @@
 #!/usr/bin/env bash
+# Configures a new ubuntu server machine by installing
+# Nginx where it should be listening on port 80
+# Serve a page that would return a Hello World string
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Update package index and install Nginx
+sudo apt-get update -y
+sudo apt-get install -y nginx
+
+# Start Nginx service
+sudo service nginx start
+
+# Ensure OpenSSH and Nginx are allowed through the firewall
+sudo ufw allow 'OpenSSH'
+sudo ufw allow 'Nginx HTTP'
+
+sudo ufw enable -y
+
+# sudo su
+
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bak
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Reload Nginx service
+sudo service nginx reload
+
+# sleep 2
+
+# Verify that Nginx is serving the "Hello World!" page
+# curl_output=$(curl localhost)
+
+# $curl_output
