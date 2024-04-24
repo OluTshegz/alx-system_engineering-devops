@@ -26,7 +26,7 @@ sudo service nginx start
 
 sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-# Reload Nginx service
+# Restart Nginx service
 sudo service nginx restart
 
 # sleep 2
