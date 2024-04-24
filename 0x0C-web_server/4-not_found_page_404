@@ -16,13 +16,10 @@ sudo service nginx start
 # sudo ufw allow 'OpenSSH'
 # sudo ufw allow 'Nginx HTTP'
 
-sudo echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
+sudo echo "Hello World" > /var/www/html/index.nginx-debian.html
 
-# Create a custom HTML file for the 404 page
-sudo echo "<html><head></head><body></body></html>" | sudo tee /var/www/html/404.html
-
-# Pass the desired string into the HTML file
-sudo sed -i "/<body>/a \    Ceci n'est pas une page" /var/www/html/404.html
+# Create a custom HTML file for the 404 page and Pass the desired string into the HTML file
+sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 # creating an Nginx server configuration file to use the custom 404 page and handle the redirect
 sudo echo "server {
