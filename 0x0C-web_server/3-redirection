@@ -19,7 +19,7 @@ sudo service nginx start
 sudo echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
 
 # Create a custom HTML file for redirection
-echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=https://github.com/OluTshegz></head><body></body></html>" | sudo tee /var/www/html/redirect_me.html
+sudo echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=https://github.com/OluTshegz></head><body></body></html>" | sudo tee /var/www/html/redirect_me.html
 
 # Configure Nginx for redirection
 sudo sed -i '/listen 80 default_server/a return 301 https://github.com/OluTshegz;' /etc/nginx/sites-available/default
