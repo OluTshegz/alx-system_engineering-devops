@@ -39,6 +39,8 @@ sudo echo "server {
       internal;
    }
 }" > default
+
+# moves the created default file to the directory is where Nginx looks for its configuration files
 sudo mv -f default /etc/nginx/sites-available/default
 
 # Restart Nginx service to apply the configuration changes
