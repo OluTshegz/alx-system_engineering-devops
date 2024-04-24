@@ -24,11 +24,22 @@ sudo echo "<html><head></head><body></body></html>" | sudo tee /var/www/html/404
 # Pass the desired string into the HTML file
 sudo sed -i "/<body>/a \    Ceci n'est pas une page" /var/www/html/404.html
 
-# Create a custom HTML file to handle the redirect
-sudo echo "<html><head><meta http-equiv=\"refresh\" content=\"0; URL='https://github.com/OluTshegz'\" /></head><body></body></html>" | sudo tee /var/www/html/redirect_me.html
+# creating an Nginx server configuration file to use the custom 404 page and handle the redirect
+sudo echo "server {
+   listen 80 default_server;
+   listen [::]:80 default_server;
 
-# Configure Nginx to use the custom 404 page and handle the redirect
-sudo sed -i '/listen 80 default_server;/a error_page 404 /404.html;\n\nlocation /redirect_me {\n    return 301 /redirect_me.html;\n}' /etc/nginx/sites-available/default
+   root /var/www/html;
+   index index.html index.htm index.nginx-debian.html;
+   location /redirect_me {
+      return 301 https://github.com/OluTshegz;
+   }
+   error_page 404 /404.html;
+   location = /404.html{
+      internal;
+   }
+}" > default
+sudo mv -f default /etc/nginx/sites-available/default
 
 # Restart Nginx service to apply the configuration changes
 sudo service nginx restart
