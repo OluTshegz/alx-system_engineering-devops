@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # configures a brand new Ubuntu machine to the requirements:
-# Configure your Nginx server so that `/redirect_me` is redirecting to another page
+# Configure your Nginx server to have a custom 404 page that contains the string `Ceci n'est pas une page`.
 
 # Exit immediately if a command exits with a non-zero status
 # set -e
@@ -19,7 +19,10 @@ sudo service nginx start
 sudo echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
 
 # Create a custom HTML file for the 404 page
-sudo echo "<html><body>Ceci n'est pas une page</body></html>" | sudo tee /var/www/html/error_404.html
+sudo echo "<html><head></head><body></body></html>" | sudo tee /var/www/html/error_404.html
+
+# Pass the desired string into the HTML file
+sudo sed -i "/<body>/a \    Ceci n'est pas une page" /var/www/html/error_404.html
 
 # Configure Nginx to use the custom 404 page
 sudo sed -i '/listen 80 default_server;/a error_page 404 /error_404.html;' /etc/nginx/sites-available/default
