@@ -14,7 +14,7 @@ package { 'nginx':
 file_line { 'http_header':
   path    => '/etc/nginx/nginx.conf',
   match   => 'http {',
-  line    => "    add_header X-Served-By \"${hostname}\";",
+  line    => '        add_header X-Served-By $hostname};',
   require => Package['nginx'],
 }
 
