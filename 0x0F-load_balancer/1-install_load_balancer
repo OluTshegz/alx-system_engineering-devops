@@ -23,7 +23,7 @@ backend olutshegz.tech-backend
         balance roundrobin
         server 530478-web-01 52.91.126.218:80 check
         server 530478-web-02 54.89.178.237:80 check"
-echo $config_server | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$config_server" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 # enable haproxy to be started by init script
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
