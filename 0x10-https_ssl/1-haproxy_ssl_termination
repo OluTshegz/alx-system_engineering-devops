@@ -42,7 +42,6 @@ frontend olutshegz.tech-http-frontend
 frontend olutshegz.tech-https-frontend
         bind *:443 ssl crt /etc/haproxy/certs/www.olutshegz.tech.pem
         http-request set-header X-Forwarded-Proto https
-        redirect scheme https code 301 if !{ ssl_fc }
         default_backend olutshegz.tech-backend
 
 backend olutshegz.tech-backend
