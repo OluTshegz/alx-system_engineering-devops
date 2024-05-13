@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Install and configure ufw firewall on web-01 to block all incoming traffic except for TCP ports 22 (SSH), 443 (HTTPS SSL), and 80 (HTTP)
+
+# Update the package lists for upgrades and new package installations
+sudo apt-get -y update
+
+# Install the ufw package, which is the command-line interface for managing the firewall
+sudo apt-get -y install ufw
+
+# Disable the firewall temporarily
+sudo ufw disable
+
+# Set the default policy for incoming traffic to deny, meaning that all incoming connections will be blocked unless explicitly allowed
+sudo ufw default deny incoming
+
+# Set the default policy for outgoing traffic to allow, meaning that all outgoing connections will be allowed
+sudo ufw default allow outgoing
+
+# Stop the ufw service
+sudo service ufw stop
+
+# Allow incoming traffic on port 22, which is the default port for SSH (Secure Shell) connections
+sudo ufw allow 22/tcp
+
+# Allow incoming SSH connections
+# sudo ufw allow ssh
+
+# Allow incoming OpenSSH connections
+# sudo ufw allow OpenSSH
+
+# Allow incoming traffic on port 443 for HTTPS connections
+sudo ufw allow 443/tcp
+
+# Alternative command to allow incoming HTTPS connections
+# sudo ufw allow https
+
+# Alternative command to allow incoming HTTPS connections for Nginx
+# sudo ufw allow 'Nginx HTTPS'
+
+# Allow incoming traffic on port 80 for HTTP connections
+sudo ufw allow 80/tcp
+
+# Alternative command to allow incoming HTTP connections
+# sudo ufw allow http
+
+# Alternative command to allow incoming HTTP connections for Nginx
+# sudo ufw allow 'Nginx HTTP'
+
+# Enable the firewall with the rules that have been set
+sudo ufw enable
