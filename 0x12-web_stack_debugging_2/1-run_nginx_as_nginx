@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # This script ensures nginx is running as the nginx user, listens on all active IPs on port 8080, and does not use apt-get remove
 
+# Adds system user 'nginx' without home directory, login, and assigns it to the 'nginx' group
+sudo adduser --system --no-create-home --disabled-login --group nginx
+
 # Set nginx user in the config by replacing '#user' and its value
 sudo sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 
