@@ -7,6 +7,9 @@ sudo sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 # Replace port 80 with 8080 in the sites-available config
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 
+# Change ownership of the Nginx directory (/usr/share/nginx) to the nginx user and group
+chown -R nginx:nginx /usr/share/nginx
+
 # Give owner permissions to read and write to the config file
 sudo chmod 644 /etc/nginx/nginx.conf
 
