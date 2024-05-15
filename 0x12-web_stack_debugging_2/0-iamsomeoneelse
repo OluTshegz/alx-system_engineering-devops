@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 # This script accepts one argument (a username) and runs the 'whoami' command as that user
 
+# # Get the username argument
+# username="$1"
+
+# # Check if the user already exists
+# if id "$username" >/dev/null 2>&1; then
+#     echo "User $username exists"
+#     sudo - "$username" -c whoami
+# else
+#     echo "User $username does not exist"
+#     sudo useradd -m -s /bin/bash "$username"
+# fi
+
 # Get the username argument
 username="$1"
 
