@@ -42,7 +42,6 @@ def fetch_data():
 def export_to_json(data, filename='todo_all_employees.json'):
     with open(filename, 'w') as json_file:
         json.dump(data, json_file, indent=4)
-    print(f"Data exported to {filename}")
 
 
 if __name__ == '__main__':
