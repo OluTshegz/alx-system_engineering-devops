@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 This module fetches and displays the TODO list progress
 of a given employee from a REST API.
