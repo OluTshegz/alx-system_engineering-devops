@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module fetches and displays the TODO list progress of a given
-employee from a REST API. It also exports the data to a CSV file.
+employee from a REST API. It also exports the data to a JSON file.
 """
 
 import json
