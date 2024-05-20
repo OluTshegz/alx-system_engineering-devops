@@ -4,9 +4,9 @@ This module fetches and displays the TODO list progress of a given
 employee from a REST API. It also exports the data to a CSV file.
 """
 
+import csv
 import requests
 import sys
-import csv
 
 
 def get_employee_todo_progress(employee_id):
