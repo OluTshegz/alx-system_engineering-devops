@@ -19,7 +19,8 @@ def count_words(subreddit, word_list):
     user_agent = {'User-Agent': 'Google Chrome Version 125.0.6422.142'}
     query_params = {'limit': 100}
     try:
-        response = requests.get(url, headers=user_agent, params=query_params, allow_redirects=False)
+        response = requests.get(url, headers=user_agent, params=query_params,
+                                allow_redirects=False)
 
         if response.status_code != 200:
             return
@@ -37,7 +38,8 @@ def count_words(subreddit, word_list):
                     else:
                         word_count[word] = 1
 
-        sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+        sorted_words = sorted(word_count.items(), key=lambda x: x[1],
+                              reverse=True)
         for word, count in sorted_words:
             print('{}: {}'.format(word, count))
     except Exception:

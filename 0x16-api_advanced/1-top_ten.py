@@ -18,7 +18,8 @@ def top_ten(subreddit):
     user_agent = {'User-Agent': 'Google Chrome Version 125.0.6422.142'}
     query_params = {'limit': 10}
     try:
-        response = requests.get(url, headers=user_agent, params=query_params, allow_redirects=False)
+        response = requests.get(url, headers=user_agent, params=query_params,
+                                allow_redirects=False)
 
         if response.status_code != 200:
             print(None)
