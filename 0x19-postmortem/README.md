@@ -179,3 +179,77 @@ Save
 Done?
 
 Ready for a  review
+
+
+
+
+Here is a post-mortem report based on the scenario you provided:
+
+# Post-Mortem: Web Server Outage due to Blocked SSH Access
+
+## Issue Summary
+The web service experienced a major outage from 2023-08-01 08:00 UTC to 2023-08-01 14:00 UTC, impacting approximately 80% of users. The root cause was a misconfiguration that blocked incoming traffic on port 22 (SSH), preventing access to the web servers and disrupting critical system management and maintenance tasks.
+
+## Timeline
+- 08:00 UTC - The monitoring system detected that the web servers were returning 5xx errors and the service was not responding to user requests.
+- 08:05 UTC - The on-call engineer was paged and began investigating the issue.
+- 08:15 UTC - The engineering team was called in to help diagnose the problem. Initial assumptions were that there was a network connectivity issue or a bug in the latest code deployment.
+- 09:00 UTC - After ruling out network and code-related problems, the team suspected that the web servers were not receiving necessary software updates and configuration changes.
+- 10:00 UTC - The incident was escalated to the system administration team to investigate the server-level configuration.
+- 11:00 UTC - The system administrators discovered that port 22 (SSH) had been blocked, preventing them from accessing the web servers remotely.
+- 11:30 UTC - The root cause was identified as a misconfiguration of the firewall rules during the initial server setup, where SSH access had been inadvertently disabled.
+- 12:00 UTC - The firewall rules were updated to allow incoming traffic on port 22, and the system administrators were able to connect to the web servers.
+- 13:00 UTC - The necessary software updates and configuration changes were applied to the web servers, and the service began to recover.
+- 14:00 UTC - After verifying the web service had stabilized, the outage was declared resolved.
+
+## Root Cause and Resolution
+The root cause of the incident was a misconfiguration of the firewall rules during the initial setup of the web servers. The SSH port (port 22) had been blocked, preventing the system administrators from remotely accessing and managing the servers. This disrupted the ability to perform critical tasks, such as applying software updates and configuration changes, causing the web service to become unstable and unresponsive.
+
+To resolve the issue, the system administration team quickly identified the problem and updated the firewall rules to allow incoming traffic on port 22. This restored the ability to connect to the web servers and apply the necessary updates and changes, allowing the service to recover and resume normal operation.
+
+## Corrective and Preventative Measures
+To prevent similar incidents in the future, the following actions will be taken:
+
+1. Implement a standardized server provisioning and configuration process, with clear checklists and validation steps to ensure all necessary ports and services are properly configured.
+2. Enhance the monitoring and alerting system to detect any network connectivity issues or service disruptions, including blocked ports or firewall rule changes.
+3. Establish a clear communication protocol between the system administration, network, and engineering teams to ensure timely coordination during incident response.
+4. Provide additional training for the system administration team on best practices for server hardening and configuration management.
+5. Review and update the incident response and escalation procedures to improve the efficiency and effectiveness of troubleshooting and resolution.
+6. Implement regular security audits and vulnerability assessments to identify and address potential configuration issues or security vulnerabilities.
+
+
+[image_0]: https://pfst.cf2.poecdn.net/base/image/f6961f00ae640276641918bd4434226255543de224dc50d1490e9c7777dab9a3?w=161&h=81&pmaid=95004869
+Here's an updated version of the post-mortem report with a touch of humor and a diagram to catch the audience's attention:
+
+# Post-Mortem: The Great SSH Lockout of 2023
+
+## Issue Summary
+The web service experienced a major outage from 2023-08-01 08:00 UTC to 2023-08-01 14:00 UTC, leaving approximately 80% of our users feeling like they were trapped in a digital escape room with no way out. The root cause? A classic case of "Oops, I did it again" - a firewall configuration mishap that blocked incoming traffic on port 22 (SSH), preventing access to the web servers and disrupting critical system management and maintenance tasks.
+
+## Timeline
+- 08:00 UTC - The monitoring system, ever the vigilant watchdog, detected that the web servers were returning 5xx errors, leading the on-call engineer to exclaim, "Houston, we have a problem!"
+- 08:05 UTC - The on-call engineer was paged, and they sprang into action, channeling their inner Sherlock Holmes to unravel the mystery.
+- 08:15 UTC - The engineering team, armed with their thinking caps and a healthy dose of caffeine, joined the investigation, exploring various leads, from network connectivity issues to a potential bug in the latest code deployment.
+- 10:00 UTC - The incident was escalated to the system administration team, who were summoned like the Avengers, ready to save the day.
+- 11:00 UTC - The system administrators, after a thorough examination of the server logs, discovered the culprit: a firewall that was tighter than a drum, blocking SSH access and leaving the team feeling like they were locked out of their own party.
+- 12:00 UTC - With a few strategic keystrokes, the system administrators unlocked the doors, allowing the team to apply the necessary updates and configurations, much to the relief of the anxious users.
+- 14:00 UTC - The web service was back online, and the team breathed a collective sigh of relief, vowing to never let this happen again (at least until the next time it does).
+
+## Root Cause and Resolution
+The root cause of the incident was a classic case of "finger-pointing at the firewall," where the SSH port (port 22) had been blocked, preventing the system administrators from remotely accessing and managing the servers. This disrupted the ability to perform critical tasks, such as applying software updates and configuration changes, causing the web service to become as unstable as a house of cards in a hurricane.
+
+To resolve the issue, the system administration team quickly identified the problem and updated the firewall rules to allow incoming traffic on port 22, restoring the team's ability to connect to the web servers and apply the necessary updates and changes. It was a classic case of "open sesame" - once the door was unlocked, the service was able to recover and resume normal operation.
+
+## Corrective and Preventative Measures
+To prevent similar incidents in the future, the team has developed a comprehensive plan that includes:
+
+1. Implementing a standardized server provisioning process, complete with checklists and validation steps to ensure all necessary ports and services are properly configured.
+2. Enhancing the monitoring and alerting system to detect any network connectivity issues or service disruptions, including blocked ports or firewall rule changes.
+3. Establishing clear communication protocols between the system administration, network, and engineering teams to ensure timely coordination during incident response.
+4. Providing additional training for the system administration team on best practices for server hardening and configuration management.
+5. Reviewing and updating the incident response and escalation procedures to improve the efficiency and effectiveness of troubleshooting and resolution.
+6. Implementing regular security audits and vulnerability assessments to identify and address potential configuration issues or security vulnerabilities.
+
+![Diagram of the Corrective and Preventative Measures][image_0]
+
+By implementing these measures, the team hopes to prevent similar incidents from occurring in the future, ensuring that our users can access the web service without feeling like they're trapped in a digital escape room.
