@@ -1,0 +1,34 @@
+[Unit] // Defines the service unit.
+Description="gunicorn.conf/gunicorn.service: Gunicorn application server running AirBnB_clone_v4's web_dynamic" // Sets a human-readable description for the service.
+After=network.target // Specifies that the service should start after the network service is available.
+
+
+[Service] // Defines the service behavior.
+User=ubuntu // Sets the user under which the service will run (# replace with your actual username).
+Group=www-data // Sets the group under which the service will run (often www-data, # Or the group your web server runs under).
+
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4 // Sets the directory where the Gunicorn process will execute. (# Replace with your project directory, /path/to/web_dynamic)
+
+Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/home/ubuntu/.local/bin:/home/ubuntu/.local/sbin:$PATH" // Sets the environment variable PATH to include your Python environment's bin directory. (# Replace with your Python environment path)
+
+ExecStart=/home/ubuntu/.local/bin/gunicorn \
+--bind 0.0.0.0:5003 \
+--workers 3 \
+--error-log /tmp/airbnb-error.log \
+--access-log /tmp/airbnb-access.log \
+web_dynamic.2-hbnb:app
+
+// 14 - 19 :
+(14a. `ExecStart`: Defines the command to start the Gunicorn process,
+14b. `/home/ubuntu/.local/bin/gunicorn`: Path to the Gunicorn executable within your virtual environment,
+15. `--bind 0.0.0.0:5003`: Binds the process to all interfaces on port 5003,
+16. `--workers 3`: Spawns 3 worker processes for Gunicorn,
+17. `--error-log /tmp/airbnb-error.log`: Redirects errors to /tmp/airbnb-error.log,
+18. `--access-log /tmp/airbnb-access.log`: Redirects access logs to /tmp/airbnb-access.log,
+19. `web_dynamic.2-hbnb:app`: Specifies the application object to serve (replace with your actual app object) )
+
+Restart=always // Sets the behavior on service failure. Here, always restarts the service on any failure.
+
+
+[Install] // Defines how the service integrates with the system.
+WantedBy=multi-user.target // Specifies that the service should be automatically started at boot by the `multi-user.target`.
