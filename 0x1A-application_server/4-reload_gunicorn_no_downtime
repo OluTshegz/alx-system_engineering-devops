@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
 # This script reloads Gunicorn in a graceful way.
 
-# Get the PID of the Gunicorn master process
-gunicorn_pid=$(ps aux | grep gunicorn | grep -v grep | awk '{print $2}')
-
-# Send HUP signal to the master process
-kill -HUP "$gunicorn_pid"
+pkill -HUP -f gunicorn
